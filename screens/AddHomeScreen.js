@@ -12,7 +12,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 
-import React, { cloneElement, useState } from "react";
+import React, {useState } from "react";
 import * as yup from "yup";
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";

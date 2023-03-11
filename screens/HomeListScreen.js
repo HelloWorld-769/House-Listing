@@ -8,18 +8,10 @@ import * as houseActions from "../redux/actions/houseAction";
 import { useState } from "react";
 
 export default HomeListScreen = ({ navigation }) => {
-  const [refresh, setrefresh] = useState(false);
   const [isLoading, setisLoading] = useState(false);
   const dispatch = useDispatch();
   const { houses } = useSelector((state) => state.house);
 
-  const pullme = () => {
-    setrefresh(true);
-
-    setTimeout(() => {
-      setrefresh(false);
-    }, 2000);
-  };
 
   const fetchData = () => {
     setisLoading(true);
@@ -60,7 +52,7 @@ export default HomeListScreen = ({ navigation }) => {
           animated={false}
           showBackgroud={false}
           onPressMain={() => {
-            navigation.navigate("AddHome");
+            navigation.navigate("AddHome2");
           }}
         />
       </View>

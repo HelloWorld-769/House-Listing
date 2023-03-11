@@ -9,8 +9,8 @@ import {
 
 const Card = (props) => {
   const { title, description, price, image, yearBuilt, id } = props;
-  console.log(title.length);
-  console.log(title);
+  // console.log(title.length);
+  // console.log(title);
   return (
     <TouchableOpacity
       onPress={() =>
@@ -21,10 +21,10 @@ const Card = (props) => {
     >
       <View style={styles.card}>
         <View style={styles.titleContainer}>
-          {/* <Text style={styles.title}>
-            
-            {title.length > 30 ? title.length.slice(0, 10) + "...." : title}
-          </Text> */}
+          <Text style={styles.title}>
+
+            {title > 30 ? title.slice(0, 10) + "...." : title}
+          </Text>
         </View>
 
         <View style={styles.imageContainer}>
@@ -39,7 +39,7 @@ const Card = (props) => {
 
         <View style={styles.description}>
           <Text style={styles.descriptionText}>
-            {description.length > 100
+            {description > 100
               ? description.slice(0, 100) + "..."
               : description}
           </Text>
@@ -90,12 +90,13 @@ const styles = StyleSheet.create({
   year: {
     margin: 10,
     backgroundColor: "#2652B0",
-    height: 25,
+    height: 28,
     width: 80,
-    borderRadius: 5,
+    borderRadius: 7,
   },
   yearText: {
-    fontSize: 20,
+   
+    fontSize: 25,
     color: "#fff",
     textAlign: "center",
   },

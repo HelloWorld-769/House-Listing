@@ -1,4 +1,4 @@
-import { CREATE_HOUSES, DELETE_HOUSES, FETCH_HOUSES, UPDATE_HOUSE} from "../actions/houseAction";
+import { CREATE_HOUSES, DELETE_HOUSES, FETCH_HOUSES} from "../actions/houseAction";
 
 
 const initialState={
@@ -22,24 +22,6 @@ export default function(state=initialState,action){
             return{
                 houses:state.houses.filter(id=> id!==action.payload)
             }       
-        case UPDATE_HOUSE:
-            // console.log(action.payload);
-            return{
-                houses:state.houses.map((house)=>{
-                    if(house.id==action.payload.id){
-                        return{
-                            ...state,
-                            houses:action.payload
-                        }
-                    }
-                    else{
-                        return {
-                            ...state,
-                        }
-                    }
-                })
-            }
-               
     }
     return state;
 }

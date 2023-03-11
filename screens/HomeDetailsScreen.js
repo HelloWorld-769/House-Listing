@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as houseAction from "../redux/actions/houseAction";
@@ -19,7 +20,7 @@ export default HomeDetailsScreen = (props) => {
   const house = useSelector((state) =>
     state.house.houses.find((house) => house._id === id)
   );
-  console.log(house);
+ console.log(house);
   return (
     <ScrollView>
       {/* Title */}
@@ -63,8 +64,9 @@ export default HomeDetailsScreen = (props) => {
           <Text style={styles.value}>{house.description}</Text>
         </View>
 
-        <View>
-          {/* <TouchableOpacity
+        <View style={styles.buttons}>
+          <TouchableOpacity 
+          style={styles.deleteButton}
             onPress={() => {
               Alert.alert(
                 "Delete",
@@ -90,12 +92,14 @@ export default HomeDetailsScreen = (props) => {
 
             }}
           >
-            <Text> Delete</Text>
-          </TouchableOpacity> */}
+            
+              <MaterialIcons  name="delete" size={35}/>
+          </TouchableOpacity>
 
           <TouchableOpacity
+          style={styles.editButton}
             onPress={() => {
-              props.navigation.navigate("AddHome", {
+              props.navigation.navigate("AddHome2", {
                 id,
                 title: house.title,
                 image: house.image,
@@ -107,7 +111,7 @@ export default HomeDetailsScreen = (props) => {
               });
             }}
           >
-            <Text> Edit </Text>
+             <MaterialIcons  name="edit" size={35}/>
           </TouchableOpacity>
         </View>
       </View>
@@ -117,7 +121,7 @@ export default HomeDetailsScreen = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     marginVertical: 20,
   },
   heading: {
@@ -128,13 +132,15 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   image: {
-    width: "100%",
     height: 200,
+    borderRadius:10,
+    marginHorizontal:10,
+    marginBottom:10,
   },
   group: {
     marginHorizontal: 20,
-    marginVertical: 10,
-    flexDirection: "row",
+    marginVertical: 5,
+    flexDirection: "column",
   },
   label: {
     fontSize: 18,
@@ -144,4 +150,28 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     flexShrink: 1,
   },
+  buttons:{
+    flexDirection:"row-reverse"
+  },
+  deleteButton:{
+    shadowColor: "black",
+    shadowOpacity:0.25,
+    shadowRadius: 1,
+    marginHorizontal:10,
+    backgroundColor:"#ffffff",
+    padding:10,
+    borderRadius:15,
+    elevation: 10,
+  },
+  editButton:{
+    shadowColor: "black",
+    shadowOpacity:0.25,
+    shadowRadius: 1,
+   
+    backgroundColor:"#ffffff",
+    padding:10,
+    borderRadius:15,
+    elevation: 10,
+
+  }
 });

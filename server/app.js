@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 const dbUrl =
-  "mongodb+srv://HelloWorld:iggaIcN8ZQ2YzpHE@cluster0.he8dwcr.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://HelloWorld:3S73Y2eBym0iEcTj@cluster0.he8dwcr.mongodb.net/?retryWrites=true&w=majority";
 
 const validate = [
   check("title")
